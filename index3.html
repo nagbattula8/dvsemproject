@@ -1,0 +1,525 @@
+<!--
+/*!
+ * Start Bootstrap - SB Admin 2 v4.0.7 (https://startbootstrap.com/template-overviews/sb-admin-2)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-sb-admin-2/blob/master/LICENSE)
+ */
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <style type="text/css">
+        #map {
+      width: auto;
+      height: 300px;
+    }
+
+    .info {
+      padding: 6px 8px;
+      font: 14px/16px Arial, Helvetica, sans-serif;
+      background: white;
+      background: rgba(255,255,255,0.8);
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      border-radius: 5px;
+      width: auto;
+    }
+    .info h4 {
+      margin: 0 0 5px;
+      color: #777;
+    }
+
+    .legend {
+      text-align: left;
+      line-height: 18px;
+      color: #555;
+    }
+    .legend i {
+      width: 18px;
+      height: 18px;
+      float: left;
+      margin-right: 8px;
+      opacity: 0.7;
+    }
+  </style>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>SB Admin 2 - Dashboard</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="js_zip/leaflet.css" />
+
+</head>
+
+  <script src="js_zip/leaflet.js"></script>
+  <script src="https://unpkg.com/topojson@3.0.2/dist/topojson.min.js"></script>
+  <script type="text/javascript" src="js_zip/az2.js"></script>  
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
+
+            <li class="nav-item">
+        <a class="nav-link" href="index.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+
+
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div>
+
+          </div>
+
+
+
+
+
+
+
+                    <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+
+          </div>
+
+
+          <!-- Content Row -->
+
+          <div class="row">
+
+            <!-- Arizona Choropleth map -->
+            <div class="col-xl-8 col-lg-7">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Plants possible to be discovered in each county of Arizona</h6>
+                  <div class="dropdown no-arrow" style="display: none;">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                      <div class="dropdown-header">Dropdown Header:</div>
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- Card Body Map area -->
+                <div class="card-body">
+                  <div class="chart-area">
+                    <div class='tableauPlaceholder' id='viz1587966667427' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;fi&#47;finaldashboard_15879620560730&#47;Dashboard5&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='finaldashboard_15879620560730&#47;Dashboard5' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;fi&#47;finaldashboard_15879620560730&#47;Dashboard5&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1587966667427');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1366px';vizElement.style.height='795px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1366px';vizElement.style.height='795px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                    <div align="center"> <p style="color: black;"> <b>Hover over each county to find cactae which are likely to occur in that county <b></p></div>
+                  </div>
+                </div>
+              </div>
+
+
+          </div>
+
+          <!-- Content Row -->
+          <div class="row">
+
+
+            <div class="col">
+
+
+            </div>
+          </div>
+
+
+
+        </div>
+
+
+                                            <!-- Content Row -->
+          <div class="row" id="findingsRow">
+
+          </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="vendor/chart.js/Chart.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="js/demo/chart-area-demo.js"></script>
+  <script src="js/demo/chart-pie-demo.js"></script>
+
+<script type="text/javascript">
+
+    function myfunction() {
+      //console.log(findings.coconino);
+      var elem = document.getElementById('map');
+      elem.style.display = "block";
+
+      var map = L.map('map').setView([33.8, -110], 5.5);
+          
+
+    L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
+      maxZoom: 40,
+      attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+        '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+        'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+      id: 'examples.map-20v6611k'
+    }).addTo(map);
+
+    // control that shows state info on hover
+    var info = L.control();
+
+    info.onAdd = function (map) {
+      this._div = L.DomUtil.create('div', 'info');
+      this.update();
+      return this._div;
+    };
+
+    info.update = function (props) {
+
+
+
+    };
+
+
+        function getColor(d) {
+      return d > 2  ? '#900C3F' :
+             d > 1  ? '#C70039' :
+             d > 0   ? '#FF5733' :
+                        '#FFC30F';
+    }
+
+    function style(feature) {
+      return {
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.7,
+        fillColor: getColor(feature.properties.density2)
+      };
+    }
+
+    function highlightFeature(e) {
+
+      
+
+      var layer = e.target;
+
+
+      layer.setStyle({
+        weight: 5,
+        color: '#666',
+        dashArray: '',
+        fillOpacity: 0.7
+      });
+
+      if (!L.Browser.ie && !L.Browser.opera) {
+        layer.bringToFront();
+      }
+
+      //info.update(layer.feature.properties);
+
+      prop1 = layer.feature.properties;
+
+      var nameCounty = prop1.NAME;
+
+      nameCounty = nameCounty.toLowerCase();
+
+      console.log(prop1.density);
+
+      console.log(findings[nameCounty]);
+
+      var cardView = document.getElementById('cardView');
+
+     // cardView.setAttribute("style", "display: block;")
+
+       var listResults = document.getElementById("findingsRow").innerHTML = "";
+
+
+
+       //listResults.appendChild(cardView);
+
+
+
+
+      //document.getElementById("findingsRow").appendChild(div1);
+
+
+
+      // var hi = document.getElementById('hi').innerHTML = prop1.density;
+      // var column2 = document.getElementById('results');
+      // var resultTitle = document.getElementById('resultTitle').innerHTML = "Scientific names of the plants that are probable to be found in " + prop1.NAME;
+      // column2.setAttribute("style", "display: block;");
+
+      // var listResults = document.getElementById("listResults").innerHTML = "";
+
+       for (var i = findings[nameCounty].length - 1; i >= 0; i--) {
+
+       // card elements of findings
+       var div1 = document.createElement("div");
+       var div2 = document.createElement("div");
+       var div3 = document.createElement("div");
+       var div4 = document.createElement("div");
+       var div5 = document.createElement("div");
+       var div6 = document.createElement("div");
+       var div7 = document.createElement("div");
+
+       //console.log("Name of image " +nameCounty);
+
+       div1.setAttribute("class","col");
+       div2.setAttribute("class","card border-left-success shadow h-100 py-2");
+       div3.setAttribute("class","card-body");
+       div4.setAttribute("class","row no-gutters align-items-center");
+       div5.setAttribute("class","col mr-2");
+       div6.setAttribute("class","text-xs font-weight-bold text-success text-uppercase mb-1");
+       div7.setAttribute("class","h5 mb-0 font-weight-bold text-gray-800");
+
+       var div6Text = document.createTextNode(findings[nameCounty][i]);
+       var div5Text = document.createTextNode("Possible plant to be discovered in " + nameCounty + "\n county");
+
+       console.log("Name of image " +  dict_pictures[findings[nameCounty][i]] );
+
+
+
+       var div7Text = document.createTextNode("$215,000");
+
+       div6.appendChild(div6Text);
+       //div7.appendChild(div7Text);
+
+      var img = document.createElement("img"); 
+
+
+      //   var bNode = document.createElement('br');
+      //   var cNode = document.createElement('center');
+
+      imageurl = dict_pictures[findings[nameCounty][i]]
+
+      iconurl = "js_zip/" + imageurl + ".jpg";
+
+      img.src=iconurl;
+      img.width=120;
+      img.height=120;
+
+      //   node.appendChild(textnode);
+
+
+      //   node.appendChild(bNode);
+
+
+      div7.appendChild(img);
+
+      //div5.appendChild(div5Text)
+       div5.appendChild(div6);
+       div5.appendChild(div7);
+
+       div4.appendChild(div5);
+
+       div3.appendChild(div4);
+
+       div2.appendChild(div3);
+
+       div1.appendChild(div2);
+
+       document.getElementById("findingsRow").appendChild(div1);
+
+
+      console.log(findings[nameCounty][i]);
+
+      }
+
+
+    }
+
+    var geojson;
+
+    function resetHighlight(e) {
+      geojson.resetStyle(e.target);
+      info.update();
+    }
+
+    function zoomToFeature(e) {
+      map.fitBounds(e.target.getBounds());
+    }
+
+    function onEachFeature(feature, layer) {
+      layer.on({
+        mouseover: highlightFeature,
+        mouseout: resetHighlight,
+        click: zoomToFeature
+      });
+    }
+
+    L.TopoJSON = L.GeoJSON.extend({
+        addData: function (data) {
+          var geojson, key;
+          if (data.type === "Topology") {
+            for (key in data.objects) {
+              if (data.objects.hasOwnProperty(key)) {
+                geojson = topojson.feature(data, data.objects[key]);
+                L.GeoJSON.prototype.addData.call(this, geojson);
+              }
+            }
+            return this;
+          }
+          L.GeoJSON.prototype.addData.call(this, data);
+          return this;
+        }
+      });
+      L.topoJson = function (data, options) {
+        return new L.TopoJSON(data, options);
+      };
+
+    geojson = L.topoJson(statesData, {
+      style: style,
+      onEachFeature: onEachFeature
+    }).addTo(map);
+
+    map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>');
+
+
+    var legend = L.control({position: 'bottomright'});
+
+
+    legend.onAdd = function (map) {
+
+      var div = L.DomUtil.create('div', 'info legend'),
+        grades = [ 0,1,2, 3],
+        labels = [],
+        from, to;
+
+        labels.push("<h6>No of findings</h6>");
+
+      for (var i = 0; i < grades.length; i++) {
+        from = grades[i];
+        to = grades[i + 1];
+
+        labels.push(
+          '<i style="background:' + getColor(from) + '"></i> ' +
+          from );
+      }
+
+      div.innerHTML = labels.join('<br>');
+      return div;
+    };
+
+
+    legend.addTo(map);
+
+    }
+
+    myfunction();
+   
+
+
+  </script>
+
+</body>
+
+</html>

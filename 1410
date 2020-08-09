@@ -1,0 +1,16 @@
+1.
+
+Line 1 - Missing semicolon
+Line 2 - Missing semicolon
+
+Line 8 - void function - won't return anything for printing
+
+Line 11 - wrong declaration
+
+4.
+
+// line 1 - Could go wrong as there is not enough space for \0 character to be included in the string. Won't produce compile time error.
+
+// line 3 - Cannot assign char[] strings directly with = operator
+
+

@@ -1,0 +1,16 @@
+body {
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  }
+  
+  #chartdiv {
+    width: 100%;
+    height: 600px;
+  }
+  
+  select {
+    text-align: center;
+    text-align-last: center;
+  }
+  option {
+    text-align: left;
+  }
